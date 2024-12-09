@@ -69,7 +69,7 @@ async function generateGrid() {
   const maxRate = Math.max(...mortalityRates);
 
   // Create a color scale based on light brown to dark brown (using oranges palette)
-  const brownScale = d3.scaleSequential(d3.interpolateOranges).domain([minRate, maxRate]);
+  const colorScale = d3.scaleSequential(d3.interpolateReds).domain([minRate, maxRate]);
 
   // Generate 96 grid items (8x12)
   for (let i = 1; i <= 96; i++) {
@@ -84,7 +84,7 @@ async function generateGrid() {
 
       // If mortality data exists, color using the brown scale
       if (mortalityRate !== undefined) {
-        gridItem.style.backgroundColor = brownScale(mortalityRate);
+        gridItem.style.backgroundColor = colorScale(mortalityRate);
       } else {
         // If no data for this state, color gray
         gridItem.style.backgroundColor = 'mauve';
@@ -145,9 +145,9 @@ function toggleStateInfoNear(gridItem, stateDetails) {
   // Add the state details to the container, including the main cause of death, abortion info, and baby mortality
   detailsContainer.innerHTML = `
     <h3>${stateDetails.fullName}</h3>
-    <p><strong>Mortality Rate:</strong> ${stateDetails.mortalityRate}</p>
-    <p><strong>Main Cause of Death:</strong> ${stateDetails.mainCod}</p> <!-- Show the main cause of death -->
-    <p><strong>Abortion Information:</strong> ${stateDetails.abortionInfo}</p> <!-- Show abortion info -->
+    <p><strong>Maternal Mortality Rate per 100k Live Births:</strong> ${stateDetails.mortalityRate}</p>
+    <p><strong>Most Common Cause of Death:</strong> ${stateDetails.mainCod}</p> <!-- Show the main cause of death -->
+    <p><strong>Abortion Status:</strong> ${stateDetails.abortionInfo}</p> <!-- Show abortion info -->
   `;
 
   // Position the details container near the clicked grid item
