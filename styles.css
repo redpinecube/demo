@@ -248,3 +248,67 @@ p:hover {
     opacity: 1;
   }
 }
+
+/* Image Container Styling */
+.image-container {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center; /* Centers the image horizontally */
+  align-items: center;
+  padding: 20px;
+  background-color: #fff; /* White background for the image section */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  border-radius: 8px;
+  max-width: 80%; /* Restrict max width to 80% of the screen */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+img {
+  width: 100%; /* Make the image responsive */
+  max-width: 700px; /* Maximum width limit for large images */
+  height: auto;
+  border-radius: 8px; /* Rounded corners for the image */
+  transition: transform 0.3s ease; /* Smooth transition on hover */
+}
+
+img:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Button Styles */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 18px;
+  font-weight: 500;
+  background-color: #007BFF; /* A cool blue color */
+  color: #fff;
+  border: none;
+  border-radius: 25px; /* Rounded button corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  margin-bottom: 5rem;
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: translateY(-2px); /* Button lift effect */
+}
+
+button:active {
+  transform: translateY(2px); /* Button press effect */
+  background-color: #00408d; /* Even darker blue for pressed state */
+}
+
+button:focus {
+  outline: none; /* Removes default focus outline */
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Adds a blue focus outline */
+}
