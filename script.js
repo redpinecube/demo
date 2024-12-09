@@ -1,7 +1,7 @@
 // CSV data path (assuming it is in the same directory as the script)
-const csvFilePath = 'state-mortality.csv';
+const csvFilePath = 'states-data.csv';
 
-// Fetch state data from JSON files
+// Fetch state data from JSON files (state names and abbreviations)
 async function fetchStateData() {
   try {
     const stateDataResponse = await fetch('stateData.json');
@@ -22,35 +22,7 @@ async function fetchMortalityData() {
   try {
     const response = await fetch(csvFilePath);
     const data = await response.text();
-    return d3.csvParse(data);
-  } catch (error) {
-    console.error('Error loading CSV data:', error);
-    return [];
-  }
-}
-
-async function fetchMortalityData() {
-  try {
-    const response = await fetch(csvFilePath);
-    const data = await response.text();
-    const parsedData = d3.csvParse(data);
-
-    // Debugging: Log the parsed data to see the structure
-    console.log(parsedData);
-
-    return parsedData;
-  } catch (error) {
-    console.error('Error loading CSV data:', error);
-    return [];
-  }
-}
-
-// Function to fetch and parse the CSV file
-async function fetchMortalityData() {
-  try {
-    const response = await fetch(csvFilePath);
-    const data = await response.text();
-    const parsedData = d3.csvParse(data);
+    const parsedData = d3.csvParse(data); // Parse CSV data
 
     // Debugging: Log the parsed data to see the structure
     console.log(parsedData);
@@ -67,19 +39,19 @@ async function generateGrid() {
   const { stateData, stateAbbreviations } = await fetchStateData(); // Fetch both JSON files
   const mortalityData = await fetchMortalityData();
 
-  // Create a map of states to mortality rates, main_cod, abortion and baby mortality from the CSV data
+  // Create a map of states to mortality rates, causes of death, abortion info, and baby mortality from the CSV data
   const stateMortalityMap = {};
   const stateMainCodMap = {}; // To store the main cause of death
   const stateAbortionMap = {}; // To store abortion-related data
-  const stateBabyMortalityMap = {}; // To store baby mortality data
+  const stateBabyMortalityMap = {}; // To store baby mortality data (if applicable)
 
   mortalityData.forEach(row => {
-    const state = row.state;
-    const mortalityRate = parseFloat(row.rate); // Parse the mortality rate
-    const mainCause = row.main_cod ? row.main_cod : 'N/A'; // If main_cod is missing, set to 'N/A'
-    const abortionInfo = row.abortion_rate ? row.abortion_rate : 'N/A'; // If abortion_rate is missing, set to 'N/A'
-    const babyMortalityRate = row.baby_mortality_rate ? row.baby_mortality_rate : 'N/A'; // If baby_mortality_rate is missing, set to 'N/A'
-    
+    const state = row.State; // Adjust based on your CSV header (e.g., 'State', 'Mortality', etc.)
+    const mortalityRate = row.Mortality ? parseFloat(row.Mortality) : null;
+    const mainCause = row.Cause || 'N/A';
+    const abortionInfo = row.Abortion || 'N/A';
+    const babyMortalityRate = row.BabyMortalityRate || 'N/A'; // If baby mortality data is available in your CSV
+
     // Store the data in the maps
     stateMortalityMap[state] = mortalityRate;
     stateMainCodMap[state] = mainCause;
@@ -88,7 +60,7 @@ async function generateGrid() {
   });
 
   // Calculate the min and max mortality rate for dynamic color scaling
-  const mortalityRates = Object.values(stateMortalityMap);
+  const mortalityRates = Object.values(stateMortalityMap).filter(rate => rate !== null);
   const minRate = Math.min(...mortalityRates);
   const maxRate = Math.max(...mortalityRates);
 
@@ -100,10 +72,9 @@ async function generateGrid() {
     const gridItem = document.createElement('div');
     gridItem.classList.add('grid-item');
 
-    // Find the state corresponding to this number
+    // Find the state corresponding to this number (assuming stateData maps state names to numbers)
     const state = Object.keys(stateData).find(state => stateData[state] === i);
 
-    // If the state number matches, check for mortality data and color the grid item
     if (state) {
       const mortalityRate = stateMortalityMap[state];
 
@@ -173,7 +144,6 @@ function toggleStateInfoNear(gridItem, stateDetails) {
     <p><strong>Mortality Rate:</strong> ${stateDetails.mortalityRate}</p>
     <p><strong>Main Cause of Death:</strong> ${stateDetails.mainCod}</p> <!-- Show the main cause of death -->
     <p><strong>Abortion Information:</strong> ${stateDetails.abortionInfo}</p> <!-- Show abortion info -->
-    <p><strong>Baby Mortality Rate:</strong> ${stateDetails.babyMortalityRate}</p> <!-- Show baby mortality rate -->
   `;
 
   // Position the details container near the clicked grid item

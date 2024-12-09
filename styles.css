@@ -104,67 +104,99 @@ h1 {
   background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* Make sure the modal is on top */
+  z-index: 1000; /* Ensure modal is on top */
+  transition: opacity 0.3s ease; /* Smooth fade-in transition */
 }
 
+/* Modal Content */
 .popup-content {
+  display: flex;
+  justify-content: left;
   background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 400px; /* Adjust as needed */
+  padding: 20px; /* Reduced padding for smaller popup */
+  border-radius: 8px; /* Softer rounded corners */
+  width: 350px; /* Smaller width for compact popup */
+  max-width: 90%; /* Ensure responsiveness */
   text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Deeper shadow for depth */
+  transform: scale(0.9); /* Start slightly smaller for a zoom-in effect */
+  transition: transform 0.3s ease-in-out; /* Smooth zoom-in animation */
 }
 
+.popup-content.show {
+  transform: scale(1); /* When modal is shown, it zooms in */
+}
+
+/* Title */
 #state-title {
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 18px; /* Smaller title */
+  font-weight: 600; /* Bold title */
+  color: #2C3E50; /* Darker title for better contrast */
   margin-bottom: 10px;
+  text-transform: uppercase; /* Capitalized for emphasis */
+  letter-spacing: 1px; /* Slight letter spacing for a more refined look */
 }
 
+/* State Details */
 #state-details {
-  font-size: 16px;
-  color: #333;
-  line-height: 1.5;
+  font-size: 14px; /* Smaller font size */
+  color: #666; /* Soft grey text for better readability */
+  line-height: 1.4; /* Reduced line height */
+  margin-top: 5px;
+  justify-self: start;
+  font-family: 'Helvetica Neue', sans-serif; /* Modern font */
 }
 
+/* Close Button */
 .close-modal {
   position: absolute;
   top: 10px;
   right: 10px;
-  font-size: 20px;
+  font-size: 18px; /* Smaller close button */
+  font-weight: bold;
+  color: #E74C3C; /* Red color for the close button */
   cursor: pointer;
-  color: #333;
+  transition: color 0.3s ease;
 }
 
 .close-modal:hover {
-  color: #c0392b;
+  color: #C0392B; /* Darker red on hover */
 }
 
+/* Paragraph Styling */
 p {
-  background-color: #f9f9f9; /* Light grey background for contrast */
-  color: #333; /* Dark text color for good readability */
-  font-family: 'Montserrat', sans-serif; /* Elegant, professional font */
-  font-size: 18px; /* Readable font size */
-  font-weight: 400; /* Normal font weight */
-  line-height: 1.6; /* Spacing between lines for readability */
-  padding: 20px; /* Padding inside the paragraph for spacing */
-  margin: 20px auto; /* Centering the paragraph with margins */
-  border-radius: 8px; /* Rounded corners for a soft, modern look */
-  width: 80%; /* Makes the paragraph take up 80% of the container's width */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  text-align: center; /* Centers the text within the paragraph */
-  border-left: 5px solid #2C3E50; /* A professional left border for emphasis */
-  transition: transform 0.3s ease; /* Adds a smooth transition for hover effect */
+  background-color: #f7f7f7; /* Lighter background for contrast */
+  color: #333;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px; /* Smaller font size for compact text */
+  line-height: 1.4; /* Reduced line height */
+  font-weight: 400;
+  padding: 15px; /* Reduced padding */
+  margin: 15px 0; /* Reduced margin */
+  border-radius: 8px;
+  text-align: left; /* Left-align text for better readability */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover transition */
 }
 
 p:hover {
-  transform: translateY(-5px); /* Slightly lifts the paragraph on hover for interactivity */
+  transform: translateY(-3px); /* Lift effect */
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.2); /* More pronounced shadow on hover */
 }
 
+/* Media Query for Small Screens */
 @media screen and (max-width: 768px) {
+  .popup-content {
+    width: 90%; /* Responsive width */
+    padding: 15px; /* Less padding for small screens */
+  }
+
+  #state-title {
+    font-size: 16px; /* Smaller title for small screens */
+  }
+
   p {
-    width: 90%; /* Adjust width for smaller screens */
-    font-size: 16px; /* Reduce font size for better mobile readability */
+    font-size: 12px; /* Smaller text for mobile */
+    padding: 10px; /* Reduced padding for mobile */
   }
 }
 
@@ -172,29 +204,47 @@ p:hover {
 .state-details-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 30px;
-  background-color: white; /* White background */
-  border: 1px solid #ddd; /* Light border */
-  border-radius: 8px; /* Rounded corners */
-  max-width: 300px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  color: #333; /* Dark text color */
+  align-items: left;
+  padding: 20px; /* Smaller padding */
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  max-width: 280px; /* Smaller container */
+  color: #333;
+  transition: transform 0.3s ease-in-out;
+  margin-right: 15px;
+  margin-left: 5px;
+}
 
+.state-details-container.show {
+  transform: scale(1); /* Zoom-in effect when shown */
 }
 
 .state-details-container h3 {
   margin-top: 0;
-  font-size: 20px; /* Larger heading */
-  color: #444; /* Slightly darker color for the title */
+  font-size: 18px; /* Smaller title for details */
+  color: #2980B9; /* Blue color for title */
+  font-weight: 600;
 }
 
 .state-details-container p {
-  margin: 10px 0;
-  font-size: 16px;
+  margin: 5px 0; /* Reduced margin */
+  font-size: 12px; /* Smaller font size for details */
+  line-height: 1.4; /* Reduced line height */
 }
 
-/* Optional: Add some spacing between elements */
+/* Optional: Add spacing between elements */
 .state-details-container p strong {
-  font-weight: bold;
+  font-weight: 600;
+  color: #2C3E50; /* Darker color for labels */
+}
+
+/* Animation for Modal */
+@keyframes modal-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
