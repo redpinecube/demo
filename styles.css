@@ -221,7 +221,7 @@ p:hover {
 .state-details-container h3 {
   margin-top: 0;
   font-size: 18px; /* Smaller title for details */
-  color: #2980B9; /* Blue color for title */
+  color: #000000; /* Blue color for title */
   font-weight: 600;
 }
 
@@ -234,7 +234,7 @@ p:hover {
 /* Optional: Add spacing between elements */
 .state-details-container p strong {
   font-weight: 600;
-  color: #2C3E50; /* Darker color for labels */
+  color: #30363b; /* Darker color for labels */
 }
 
 /* Animation for Modal */
@@ -371,7 +371,7 @@ button {
   padding: 12px 25px;
   font-size: 18px;
   font-weight: 500;
-  background-color: #007BFF; /* A cool blue color */
+  background-color: #646b73; /* A cool blue color */
   color: #fff;
   border: none;
   border-radius: 25px; /* Rounded button corners */
@@ -382,13 +382,13 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+  background-color: #393d42; /* Darker blue on hover */
   transform: translateY(-2px); /* Button lift effect */
 }
 
 button:active {
   transform: translateY(2px); /* Button press effect */
-  background-color: #00408d; /* Even darker blue for pressed state */
+  background-color: #1b1d1f; /* Even darker blue for pressed state */
 }
 
 button:focus {
