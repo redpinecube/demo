@@ -9,7 +9,8 @@
 </head>
 <body>
     <h1>America's Maternal Mortality Crisis</h1>
-    <h2>Maternal mortality at the state level</h2>
+    <h2>Maternal Mortality Rates Across United States</h2>
+    The maternal mortality rate, defined as the number of maternal deaths per 100,000 live births, is the highest in Southern states.
     <div class="grid-container"></div> <!-- This will hold the grid items -->
     
     <!-- Modal (initially hidden) -->
@@ -22,6 +23,16 @@
                 <!-- State details like population, mortality rate, etc. will go here -->
             </div>
         </div>
+    </div>
+    <script type='module' src='https://prod-ca-a.online.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js'></script>
+    <!-- <tableau-viz id='tableau-viz' src='https://prod-ca-a.online.tableau.com/t/taliafabregas-7a68be2434/views/g7graph/Sheet1' width='1152' height='543' hide-tabs toolbar='bottom' ></tableau-viz>   -->
+    <!-- Defining the div container for the visualization. -->
+    <div style="width:900px; height:700px;">
+        <!-- Initialization of the Tableau visualization via web component. See more properties here:
+        https://help.tableau.com/current/api/embedding_api/en-us/docs/embedding_api_configure.html -->
+        <tableau-viz id="tableauViz" src=https://public.tableau.com/shared/XJH6S63S2?:display_count=n&:origin=viz_share_link
+            toolbar="bottom" hide-tabs>
+        </tableau-viz>
     </div>
 
     <h2> Who is most affected by America's maternal mortality crisis?</h2>
