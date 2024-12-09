@@ -1,0 +1,50 @@
+rate, year, age, race
+11.8, 2018, 25-39, Asian 
+13.3, 2019, 25-39, Asian 
+10.4, 2020, 25-39, Asian 
+12.7, 2021, 25-39, Asian 
+10.9, 2022, 25-39, Asian 
+15.3, 2018, Under 25, Black
+38.2, 2018, 25-39, Black
+15.3, 2018, Under 25, Black
+239.9, 2018, Over 40, Black
+18.8, 2019, Under 25, Black
+49.7, 2019, 25-39, Black
+166.5, 2019, Over 40, Black
+28.8, 2020, Under 25, Black
+56.3, 2020, 25-39, Black
+263.1, 2020, Over 40, Black
+41.5, 2021, Under 25, Black
+69.3, 2021, 25-39, Black
+300.8, 2021, Over 40, Black
+31.3, 2022, Under 25, Black
+49.2, 2022, 25-39, Black
+174.5, 2021, Over 40, Black
+10.5, 2018, Under 25, White
+13.8, 2018, 25-39, White
+72.0, 2018, Over 40, White
+13.1, 2019, Under 25, White
+16.8, 2019, 25-39, White
+75.2, 2019, Over 40, White
+11.5, 2020, Under 25, White
+17.6, 2020, 25-39, White
+96.8, 2020, Over 40, White
+16.9, 2021, Under 25, White
+24.5, 2021, 25-39, White
+126.9, 2021, Over 40, White
+10.8, 2022, Under 25, White
+17.9, 2022, 25-39, White
+83.9, 2022, Over 40, White
+7.6, 2018, Under 25, Hispanic
+12.4, 2018, 25-39, Hispanic
+8.5, 2019, Under 25, Hispanic
+12.2, 2019, 25-39, Hispanic
+7.7, 2020, Under 25, Hispanic
+19.2, 2020, 25-39, Hispanic
+86.0, 2020, Over 40, Hispanic
+14.1, 2021, Under 25, Hispanic
+30.8, 2021, 25-39, Hispanic
+86.4, 2021, Over 40, Hispanic
+9.5, 2022, Under 25, Hispanic
+16.9, 2022, 25-39, Hispanic
+70.7, 2022, Over 40, Hispanic

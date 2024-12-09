@@ -1,0 +1,200 @@
+/* Basic styles for grid */
+.grid-container {
+  padding: 5rem;
+  display: grid;
+  grid-template-columns: repeat(12, 70px); /* 12 columns, each with a fixed width of 70px */
+  gap: 0.5px; /* Slightly reduced gap for a more compact look */
+  width: 90vw; /* Make the grid container take 90% of the viewport width */
+  max-width: 1200px; /* Max width set to 1200px */
+  margin: 20px auto;
+  grid-template-rows: repeat(8, 70px); /* Fixed row height */
+  justify-content: center; /* Center the grid in the container */
+  box-sizing: border-box;
+  background-color: sil;
+
+}
+
+body {
+  background-color: #F4F4F9; /* Light neutral background for balance and focus on content */
+  font-family: 'Montserrat', sans-serif; /* Clean, modern sans-serif font for body text */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Merriweather', serif; /* Elegant, professional serif font */
+  font-size: 60px; /* Slightly larger font size for impact */
+  font-weight: 700; /* Bold weight for emphasis */
+  color: #2C3E50; /* Dark, muted color for a serious and grounded tone */
+  text-transform: uppercase; /* Keeps it formal and impactful */
+  letter-spacing: 2px; /* Increased letter spacing for better legibility and elegance */
+  margin: 60px 0; /* More spacious margin for breathing room around the heading */
+  line-height: 1.3; /* Adjusted line height for better vertical spacing */
+  border-bottom: 4px solid #2C3E50; /* Adds a bold underline for a more polished look */
+  padding-bottom: 15px; /* Adds a bit more space between the text and the underline */
+  position: relative; /* Set up for decorative effect */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1); /* Soft text shadow for subtle emphasis */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+
+/* Set modern font family */
+.grid-item {
+  font-family: 'Montserrat', sans-serif; /* Applying the Montserrat font */
+}
+
+/* Fixed size for grid items with no stretching or resizing */
+.grid-item {
+  width: 70px; /* Fixed width for each grid item */
+  height: 70px; /* Fixed height for each grid item */
+  background-color: lightgrey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  font-size: 9px; /* Reduced font size for better compactness */
+  
+  font-weight: 500; /* Slightly bolder font weight for better readability */
+  border-radius: 4px; /* Slightly round the corners */
+  text-align: center; /* Ensure abbreviation is centered */
+  box-sizing: border-box; /* Prevent padding from affecting size */
+  flex-shrink: 0; /* Prevent the item from shrinking */
+  flex-grow: 0; /* Prevent the item from growing */
+}
+
+/* Tooltip style */
+.tooltip {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 4px; /* Slightly reduced padding for a smaller tooltip */
+  border-radius: 4px;
+  font-size: 11px; /* Slightly smaller tooltip font size */
+  z-index: 10; /* Make sure the tooltip is above other content */
+  white-space: nowrap; /* Prevent the text from wrapping */
+  pointer-events: none; /* Prevent the tooltip from interfering with mouse events */
+}
+
+/* Optional: Add a slight animation for the tooltip */
+.tooltip {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Modal Styles */
+.state-info-modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Make sure the modal is on top */
+}
+
+.popup-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px; /* Adjust as needed */
+  text-align: center;
+}
+
+#state-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#state-details {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.5;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+}
+
+.close-modal:hover {
+  color: #c0392b;
+}
+
+p {
+  background-color: #f9f9f9; /* Light grey background for contrast */
+  color: #333; /* Dark text color for good readability */
+  font-family: 'Montserrat', sans-serif; /* Elegant, professional font */
+  font-size: 18px; /* Readable font size */
+  font-weight: 400; /* Normal font weight */
+  line-height: 1.6; /* Spacing between lines for readability */
+  padding: 20px; /* Padding inside the paragraph for spacing */
+  margin: 20px auto; /* Centering the paragraph with margins */
+  border-radius: 8px; /* Rounded corners for a soft, modern look */
+  width: 80%; /* Makes the paragraph take up 80% of the container's width */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  text-align: center; /* Centers the text within the paragraph */
+  border-left: 5px solid #2C3E50; /* A professional left border for emphasis */
+  transition: transform 0.3s ease; /* Adds a smooth transition for hover effect */
+}
+
+p:hover {
+  transform: translateY(-5px); /* Slightly lifts the paragraph on hover for interactivity */
+}
+
+@media screen and (max-width: 768px) {
+  p {
+    width: 90%; /* Adjust width for smaller screens */
+    font-size: 16px; /* Reduce font size for better mobile readability */
+  }
+}
+
+/* State details container styling */
+.state-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  background-color: white; /* White background */
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 8px; /* Rounded corners */
+  max-width: 300px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  color: #333; /* Dark text color */
+
+}
+
+.state-details-container h3 {
+  margin-top: 0;
+  font-size: 20px; /* Larger heading */
+  color: #444; /* Slightly darker color for the title */
+}
+
+.state-details-container p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+/* Optional: Add some spacing between elements */
+.state-details-container p strong {
+  font-weight: bold;
+}

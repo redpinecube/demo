@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>State Grid</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Make sure your CSS file is properly linked -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>American Maternal Mortality</h1>
+    <p>Initial Text</p>
+    <div class="grid-container"></div> <!-- This will hold the grid items -->
+    
+    <!-- Modal (initially hidden) -->
+    <div id="state-info-modal" class="state"></div>
+    <div id="state-info-modal" class="state-info-modal">
+        <div class="popup-content">
+            <span id="close-modal" class="close-modal">&times;</span>
+            <h2 id="state-title"></h2> <!-- The state name will go here -->
+            <div id="state-details">
+                <!-- State details like population, mortality rate, etc. will go here -->
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://d3js.org/d3.v7.min.js"></script> <!-- D3.js for charting (if needed) -->
+    <script src="script.js"></script> <!-- Link to your JavaScript file -->
+</body>
+</html>
