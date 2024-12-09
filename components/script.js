@@ -1,5 +1,5 @@
 // CSV data path (assuming it is in the same directory as the script)
-const csvFilePath = 'states-data.csv';
+const csvFilePath = './data/states-data.csv';
 
 function changeImage(imageSrc) {
   document.getElementById('current-image').src = imageSrc;
@@ -8,10 +8,10 @@ function changeImage(imageSrc) {
 // Fetch state data from JSON files (state names and abbreviations)
 async function fetchStateData() {
   try {
-    const stateDataResponse = await fetch('stateData.json');
+    const stateDataResponse = await fetch('./data/stateData.json');
     const stateData = await stateDataResponse.json();
 
-    const stateAbbreviationsResponse = await fetch('stateAbbreviations.json');
+    const stateAbbreviationsResponse = await fetch('./data/stateAbbreviations.json');
     const stateAbbreviations = await stateAbbreviationsResponse.json();
 
     return { stateData, stateAbbreviations };
