@@ -69,7 +69,7 @@ async function generateGrid() {
   const maxRate = Math.max(...mortalityRates);
 
   // Create a color scale based on light brown to dark brown (using oranges palette)
-  const brownScale = d3.scaleSequential(d3.interpolateOranges).domain([minRate, maxRate]);
+  const brownScale = d3.scaleSequential(d3.interpolateReds).domain([minRate, maxRate]);
 
   // Generate 96 grid items (8x12)
   for (let i = 1; i <= 96; i++) {
