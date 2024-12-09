@@ -145,9 +145,9 @@ function toggleStateInfoNear(gridItem, stateDetails) {
   // Add the state details to the container, including the main cause of death, abortion info, and baby mortality
   detailsContainer.innerHTML = `
     <h3>${stateDetails.fullName}</h3>
-    <p><strong>Mortality Rate:</strong> ${stateDetails.mortalityRate}</p>
-    <p><strong>Main Cause of Death:</strong> ${stateDetails.mainCod}</p> <!-- Show the main cause of death -->
-    <p><strong>Abortion Information:</strong> ${stateDetails.abortionInfo}</p> <!-- Show abortion info -->
+    <p><strong>Mortality rate per 100k live births:</strong> ${stateDetails.mortalityRate}</p>
+    <p><strong>Most common cause of maternal death:</strong> ${stateDetails.mainCod}</p> <!-- Show the main cause of death -->
+    <p><strong>Abortion status:</strong> ${stateDetails.abortionInfo}</p> <!-- Show abortion info -->
   `;
 
   // Position the details container near the clicked grid item
